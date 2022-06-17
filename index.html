@@ -14,7 +14,7 @@
       <br>
       Save all the resulting line art images: <button id="downloadBtn" disabled onclick="downloadOutputImages()">save</button>
     </div>
-    <p><a href="https://github.com/josephrocca/image-to-line-art-js">github repo</a> - <a href="https://huggingface.co/rocca/informative-drawings-line-art-onnx">huggingface repo</a></p>
+    <p><a href="https://github.com/backnotprop/image-to-line-art-js">github repo</a> - <a href="https://huggingface.co/backnotprop/informative-drawings-image-to-opensketch-onnx">huggingface repo</a></p>
     
     <script>
       if(self.crossOriginIsolated) { // needs to be cross-origin-isolated to use wasm threads. you need to serve this html file with these two headers: https://web.dev/coop-coep/
@@ -27,7 +27,7 @@
       let onnxSession;
       (async function() {
         console.log("Downloading model... (see network tab for progress)");
-        onnxSession = await ort.InferenceSession.create('https://huggingface.co/rocca/informative-drawings-line-art-onnx/resolve/main/model.onnx', { executionProviders: ["wasm"] });
+        onnxSession = await ort.InferenceSession.create('https://huggingface.co/backnotprop/informative-drawings-image-to-opensketch-onnx/resolve/main/model.onnx', { executionProviders: ["wasm"] });
         console.log("Model loaded.");
         startBtn.disabled = false;
         startBtn.textContent = "start";
